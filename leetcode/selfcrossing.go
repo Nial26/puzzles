@@ -7,7 +7,7 @@ type point struct {
 	y int
 }
 
-func IsSelfCrossing(distance []int) bool {
+func isSelfCrossing(distance []int) bool {
 	var pointsVisited []point
 	currentPosition := point{0, 0}
 	pointsVisited = append(pointsVisited, currentPosition)

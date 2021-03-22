@@ -23,7 +23,7 @@ func TestIsSelfCrossing(t *testing.T) {
 		},
 	}
 	for _, c := range testCases {
-		got := IsSelfCrossing(c.input)
+		got := isSelfCrossing(c.input)
 		if got != c.expected {
 			t.Fatalf("expected : %v, got: %v\n", c.expected, got)
 		}
