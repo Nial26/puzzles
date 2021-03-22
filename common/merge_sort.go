@@ -1,10 +1,10 @@
-package puzzles
+package common
 
-func mergeSort(numbers []int) []int {
+func MergeSort(numbers []int) []int {
 	if len(numbers) <= 1 {
 		return numbers
 	}
-	return merge(mergeSort(numbers[:len(numbers)/2]), mergeSort(numbers[len(numbers)/2:]))
+	return merge(MergeSort(numbers[:len(numbers)/2]), MergeSort(numbers[len(numbers)/2:]))
 
 }
 

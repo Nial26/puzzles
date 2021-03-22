@@ -1,4 +1,4 @@
-package puzzles
+package common
 
 import (
 	"fmt"
@@ -30,7 +30,7 @@ func TestMergeSort(t *testing.T) {
 	}
 
 	for _, c := range testCases {
-		got := mergeSort(c.input)
+		got := MergeSort(c.input)
 		if !reflect.DeepEqual(c.expected, got) {
 			fmt.Println(c.expected)
 			fmt.Println(got)
@@ -46,7 +46,7 @@ func TestMergeSortOnRandomInput(t *testing.T) {
 		expected = append(expected, i)
 	}
 	input := rand.Perm(100)
-	got := mergeSort(input)
+	got := MergeSort(input)
 	if !reflect.DeepEqual(got, expected) {
 		t.Fatalf("expected : %v, got : %v, for input : %v", expected, got, input)
 	}
@@ -59,7 +59,7 @@ func BenchmarkMergeSort(b *testing.B) {
 	rand.Seed(time.Now().Unix())
 	for i := 0; i < b.N; i++ {
 		rand.Perm(100)
-		out = mergeSort(rand.Perm(100))
+		out = MergeSort(rand.Perm(100))
 	}
 	benchMergeResult = out
 }
