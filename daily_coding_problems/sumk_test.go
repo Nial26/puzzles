@@ -1,6 +1,10 @@
 package puzzles
 
-import "testing"
+import (
+	"math/rand"
+	"testing"
+	"time"
+)
 
 type canSumToKTestCase struct {
 	inputNumbers []int
@@ -27,9 +31,39 @@ func TestCanSumToK(t *testing.T) {
 		},
 	}
 	for _, c := range testcases {
-		got := CanSumToK(c.inputNumbers, c.k)
+		got := canSumToK(c.inputNumbers, c.k)
 		if c.expected != got {
-			t.Fatalf("expected : %v got : %v\n", c.expected, got)
+			t.Fatalf("expected : %v got : %v for input : %v\n", c.expected, got, c.inputNumbers)
 		}
 	}
+	for _, c := range testcases {
+		got := optimisedCanSumToK(c.inputNumbers, c.k)
+		if c.expected != got {
+			t.Fatalf("expected : %v got : %v for input : %v\n", c.expected, got, c.inputNumbers)
+		}
+	}
+}
+
+var canBenchToK bool
+
+func BenchmarkCanSumToK(b *testing.B) {
+	var result bool
+	rand.Seed(time.Now().Unix())
+	for n := 0; n < b.N; n++ {
+		numbers := rand.Perm(10)
+		result = canSumToK(numbers, numbers[5]+numbers[7])
+	}
+	canBenchToK = result
+}
+
+var optimisedCanBenchToK bool
+
+func BenchmarkOptimisedCanSumToK(b *testing.B) {
+	var result bool
+	rand.Seed(time.Now().Unix())
+	for n := 0; n < b.N; n++ {
+		numbers := rand.Perm(10)
+		result = optimisedCanSumToK(numbers, numbers[5]+numbers[7])
+	}
+	optimisedCanBenchToK = result
 }
