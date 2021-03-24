@@ -1,1 +1,1 @@
-<a href='https://github.com/jpoles1/gopherbadger' target='_blank'>![gopherbadger-tag-do-not-edit](https://img.shields.io/badge/Go%20Coverage-96%25-brightgreen.svg?longCache=true&style=flat)</a>
+[![codecov](https://codecov.io/gh/Nial26/puzzles/branch/master/graph/badge.svg?token=A8ZM2CJDM6)](https://codecov.io/gh/Nial26/puzzles)
