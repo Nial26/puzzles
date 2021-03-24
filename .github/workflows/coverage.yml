@@ -1,0 +1,14 @@
+name: coverage
+on: [pull_request, push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-go@v2
+      with:
+        go-version: '^1.16.2' # The Go version to download (if necessary) and use.
+    - name: Test With Coverage
+      run: go test -v  -coverprofile=coverage.txt -covermode=atomic ./...
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v1

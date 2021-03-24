@@ -1,0 +1,1 @@
+[![codecov](https://codecov.io/gh/Nial26/puzzles/branch/master/graph/badge.svg?token=A8ZM2CJDM6)](https://codecov.io/gh/Nial26/puzzles)
