@@ -25,6 +25,10 @@ func TestValidTTTPosition(t *testing.T) {
 			input:    []string{"OOO", "   ", "XXX"},
 			expected: false,
 		},
+		{
+			input:    []string{"X O", "XO ", "X  O"},
+			expected: false,
+		},
 	}
 	for _, c := range testCases {
 		got := ValidTTTPosition(c.input)
